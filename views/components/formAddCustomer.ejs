@@ -1,0 +1,65 @@
+<h2>Add a Company</h2>
+<form action="/addCustomer" method="POST">
+  <div>
+    <label class="form-label">
+      Legal Entity Name:
+      <input class="form-control" type="text" name="legal_entity_name" required />
+    </label>
+  </div>
+  <div>
+    <label class="form-label">
+      Parent Account:
+      <select class="form-control" name="parent_entity_id">
+        <option value="" disabled selected>Select</option>
+        <% parentAccounts.forEach(function(parent) { %>
+        <option value="<%= parent.company_id %>" %>><%= parent.legal_entity_name %></option>
+        <% }); %>
+      </select>
+      </label>
+  </div>
+  <div>
+    <label class="form-label">
+      Account Manager:
+      <select class="form-control" name="owner_id" required>
+        <option value="" disabled selected>Select</option>
+        <% accountManagers.forEach(function(mgr) { %>
+        <option value="<%= mgr.id %>"><%= mgr.name %></option>
+        <% }); %>
+      </select>
+    </label>
+  </div>
+
+  <div>
+    <label class="form-label">
+      Country:
+      <input class="form-control" type="text" name="country" required/>
+    </label>
+  </div>
+  <div>
+    <label class="form-label">
+      Address:
+      <input class="form-control" type="text" name="address" required/>
+    </label>
+  </div>
+  <div>
+    <label class="form-label">
+      Industry:
+      <input class="form-control" type="text" name="industry" required/>
+    </label>
+  </div>
+  <div>
+    <label class="form-label">
+      Type:
+      <select class="form-control" name="type" required>
+        <option value="" disabled selected>Select</option>
+        <option value="Direct Customer">Direct Customer</option>
+        <option value="ODM">ODM</option>
+        <option value="OEM">OEM</option>
+        <option value="Distributor">Distributor</option>
+        <option value="Ecosystem Partner">Ecosystem Partner</option>
+      </select>
+    </label>
+  </div>
+
+  <button class="btn btn-primary" type="submit">Create</button>
+</form>

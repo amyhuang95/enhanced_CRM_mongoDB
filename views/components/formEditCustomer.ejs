@@ -1,0 +1,143 @@
+<h2>Customer</h2>
+
+<form action=" <%= '/customers/' + customer.customer_id + '/edit' %>" method="POST">
+  <div class="form-grid">
+    <div>
+      <label class="form-label">
+        Customer ID:
+        <input
+          class="form-control"
+          type="text"
+          name="customer_id"
+          value="<%= customer.customer_id %>"
+          disabled
+        />
+      </label>
+    </div>
+
+    <div>
+      <label class="form-label">
+        Account Manager:
+        <select class="form-control" name="owner_id">
+            <% if (customer.owner_id === 0) { %>
+            <option value="0" selected disabled>Placeholder Employee</option>
+            <% } %>
+          <% accountManagers.forEach(function(mgr) { %>
+          <option value="<%= mgr.id %>" <%= customer.owner_id === mgr.id ? 'selected' : '' %>><%= mgr.name %></option>
+          <% }); %>
+        </select>
+      </label>
+    </div>
+
+    <div>
+      <label class="form-label">
+      Parent Account:
+      <select class="form-control" name="parent_entity_id">
+        <option value="" <%= !customer.parent_entity_id ? 'selected' : '' %>></option>
+        <% parentAccounts.forEach(function(parent) { %>
+        <option value="<%= parent.company_id %>" <%= customer.parent_entity_id === parent.company_id ? 'selected' : '' %>><%= parent.legal_entity_name %></option>
+        <% }); %>
+      </select>
+      </label>
+    </div>
+
+    <div>
+      <label class="form-label">
+        Legal Entity Name:
+        <input
+          class="form-control"
+          type="text"
+          name="legal_entity_name"
+          value="<%= customer.legal_entity_name %>"
+        />
+      </label>
+    </div>
+
+    <div>
+      <label class="form-label">
+        Address:
+        <input
+          class="form-control"
+          type="text"
+          name="address"
+          value="<%= customer.address %>"
+        />
+      </label>
+    </div>
+
+
+    <div>
+      <label class="form-label">
+        Country:
+        <input
+          class="form-control"
+          type="text"
+          name="country"
+          value="<%= customer.country %>"
+        />
+      </label>
+    </div>
+
+    
+    <div>
+      <label class="form-label">
+        Industry:
+        <input
+          class="form-control"
+          type="text"
+          name="industry"
+          value="<%= customer.industry %>"
+        />
+      </label>
+    </div>
+
+    <div>
+      <label class="form-label">
+        Type:
+        <select class="form-control" name="type">
+          <option value="Direct Customer" <%= customer.type === 'Direct Customer' ? 'selected' : '' %>>Direct Customer</option>
+          <option value="ODM" <%= customer.type === 'ODM' ? 'selected' : '' %>>ODM</option>
+          <option value="OEM" <%= customer.type === 'OEM' ? 'selected' : '' %>>OEM</option>
+          <option value="Distributor" <%= customer.type === 'Distributor' ? 'selected' : '' %>>Distributor</option>
+          <option value="Ecosystem Partner" <%= customer.type === 'Ecosystem Partner' ? 'selected' : '' %>>Ecosystem Partner</option>
+        </select>
+      </label>
+    </div>
+
+    <div></div>
+
+    <div>
+      <label class="form-label">
+        Status:
+        <select class="form-control" name="status">
+          <option value="Active" <%= customer.status === 'Active' ? 'selected' : '' %>>Active</option>
+          <option value="Inactive" <%= customer.status === 'Inactive' ? 'selected' : '' %>>Inactive</option>
+          <option value="Pending Review" <%= customer.status === 'Pending Review' ? 'selected' : '' %>>Pending Review</option>
+        </select>
+      </label>
+    </div>
+
+    <div>
+      <label class="form-label">
+        Date Created:
+        <input
+          class="form-control"
+          type="date"
+          name="date_created"
+          value="<%= customer.date_created %>"
+        />
+      </label>
+    </div>
+
+    <div></div>
+
+    <div class="btn-div">
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a class="btn btn-danger" href="<%= '/customers/' + customer.customer_id + '/delete' %>">Delete</a>
+    </div>
+    
+  </div>
+
+
+
+</form>
