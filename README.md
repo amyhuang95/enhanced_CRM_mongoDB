@@ -16,16 +16,16 @@ UML Class Diagram
 
 ## Schema
 
-Refers to the database schema in the [schema.pdf](docs/schema.pdf) file.
+Refers to example JSON objects of each collection in the [db/json_examples.js](db/json_examples.js) file. The comments describe some rules for the fields.
 
 ## Database
 
-This project uses SQLite as the database. To use the database, clone this repository, navigate to the queries directory, and run the following commands in the terminal:
+This project uses MongoDB as the database. To use the database, clone this repository, navigate to the queries directory, and run the following commands in the terminal:
 
 1. Initialize a new database with the schema:
 
    ```bash
-   sqlite3 database.db < schema.sql
+   mongorestore dump/
    ```
 
 2. Populate the database:
