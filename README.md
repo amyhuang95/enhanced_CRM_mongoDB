@@ -11,8 +11,8 @@ UML Class Diagram
 
 ## Logical Model
 
-Entity Relation Diagram ([link](https://lucid.app/lucidchart/b2de3990-e4b0-4b2f-8553-d5946f50834e/edit?viewport_loc=-208%2C-333%2C2102%2C1372%2C0_0&invitationId=inv_f34f8d5b-dfa7-49b7-b8d1-8d7d8303c194) to Lucidchart)
-![Entity Relation Diagram](diagrams/erd.png)
+([link](https://lucid.app/lucidchart/2da1e4e2-e400-4acb-af34-0afa0a122638/edit?view_items=JWWowJgIFUbH&invitationId=inv_f5a92ee0-36d3-4dac-9cdf-52bdf0759fc8) to Lucidchart)
+![Logical Model Diagram](diagrams/logical_model.png)
 
 ## Schema
 
