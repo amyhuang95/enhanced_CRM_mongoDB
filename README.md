@@ -42,12 +42,6 @@ This project uses MongoDB as the database. To use the database, install the requ
       mongoimport -d crm --jsonArray --file db/sample_data/[filename].json --jsonArray
       ```
 
-1. Populate the database:
-
-   ```bash
-   sqlite3 database.db < data.sql
-   ```
-
 1. To run queries on the database, use the following command. Change the number in the query file name to run different queries:
 
    ```bash
