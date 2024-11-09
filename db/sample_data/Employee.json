@@ -1,0 +1,110 @@
+[
+  {
+    "employee_id": 0,
+    "first_name": "Placeholder",
+    "last_name": "Employee",
+    "phone": "000-0000",
+    "email": "placeholder@company.com",
+    "title": "NA",
+    "department": "Sales",
+    "business_unit": "Functional",
+    "hired_date": "1999-01-01",
+    "status": "Inactive"
+  },
+  {
+    "employee_id": 1,
+    "first_name": "Alice",
+    "last_name": "Smith",
+    "phone": "555-1234",
+    "email": "alice.smith@company.com",
+    "title": "Sales Manager",
+    "department": "Sales",
+    "business_unit": "Cloud",
+    "hired_date": "2021-05-10",
+    "status": "Active"
+  },
+  {
+    "employee_id": 2,
+    "first_name": "Bob",
+    "last_name": "Johnson",
+    "phone": "555-2345",
+    "email": "bob.johnson@company.com",
+    "title": "Sales Director",
+    "department": "Sales",
+    "business_unit": "AI",
+    "hired_date": "2022-01-20",
+    "status": "Active"
+  },
+  {
+    "employee_id": 3,
+    "first_name": "Charlie",
+    "last_name": "Davis",
+    "phone": "555-3456",
+    "email": "charlie.davis@company.com",
+    "title": "Sanction Analyst",
+    "department": "Compliance",
+    "business_unit": "Automobile",
+    "hired_date": "2020-09-15",
+    "status": "Active"
+  },
+  {
+    "employee_id": 4,
+    "first_name": "Diana",
+    "last_name": "Lee",
+    "phone": "555-4567",
+    "email": "diana.lee@company.com",
+    "title": "Sales Executive",
+    "department": "Sales",
+    "business_unit": "Cloud",
+    "hired_date": "2023-04-01",
+    "status": "Active"
+  },
+  {
+    "employee_id": 5,
+    "first_name": "Eve",
+    "last_name": "Martinez",
+    "phone": "555-5678",
+    "email": "eve.martinez@company.com",
+    "title": "Software Engineer",
+    "department": "Engineering",
+    "business_unit": "AI",
+    "hired_date": "2023-02-12",
+    "status": "Active"
+  },
+  {
+    "employee_id": 6,
+    "first_name": "Jay",
+    "last_name": "Lin",
+    "phone": "555-5670",
+    "email": "jay.lin@company.com",
+    "title": "Legal Compliance Analyst",
+    "department": "Compliance",
+    "business_unit": "Functional",
+    "hired_date": "2023-02-12",
+    "status": "Active"
+  },
+  {
+    "employee_id": 7,
+    "first_name": "Zoe",
+    "last_name": "Wang",
+    "phone": "555-5671",
+    "email": "zoe.wang@company.com",
+    "title": "Software Engineer",
+    "department": "Engineering",
+    "business_unit": "Cloud",
+    "hired_date": "2023-02-12",
+    "status": "Inactive"
+  },
+  {
+    "employee_id": 8,
+    "first_name": "Sam",
+    "last_name": "Chen",
+    "phone": "555-5672",
+    "email": "sam.chen@company.com",
+    "title": "Software Engineer",
+    "department": "Engineering",
+    "business_unit": "AI",
+    "hired_date": "2023-02-12",
+    "status": "Active"
+  }
+]
