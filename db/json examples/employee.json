@@ -1,0 +1,11 @@
+{
+  "employee_id": 12345,
+  "first_name": "Kim",
+  "last_name": "Rosen",
+  "phone": "(123) 456-7890",
+  "email": "kim.rosen@example.com",
+  "title": "Software Engineer",
+  "department": "Engineering",
+  "date_hired": "2023-11-08",
+  "is_active": true
+}
