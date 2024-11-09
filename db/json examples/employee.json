@@ -6,6 +6,7 @@
   "email": "kim.rosen@example.com",
   "title": "Software Engineer",
   "department": "Engineering",
+  "business_unit": "Cloud",
   "date_hired": "2023-11-08",
   "is_active": true
 }

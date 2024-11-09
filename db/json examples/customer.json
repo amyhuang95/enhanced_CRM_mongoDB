@@ -33,7 +33,7 @@
     "owner_id": 67890,
     "first_name": "Jason",
     "last_name": "Ding",
-    "department": "Sales",
+    "business_unit": "Cloud",
     "title": "Sales Manager"
   },
   "contact": {
