@@ -18,31 +18,45 @@ UML Class Diagram
 
 Refers to example JSON objects of each collection in the [db/json_examples.js](db/json_examples.js) file. The comments describe some rules for the fields.
 
-## Database
+## Database Setup
 
-This project uses MongoDB as the database. To use the database, clone this repository, navigate to the queries directory, and run the following commands in the terminal:
+This project uses MongoDB as the database. To use the database, install the required tools, clone this repository and run the following commands in the terminal:
 
-1. Initialize a new database with the schema:
+1. Tools required:
 
-   ```bash
-   mongorestore dump/
-   ```
+   - [MongoDB](https://www.mongodb.com/try/download/community) for the database server. By default, MongoDB runs on localhost:27017. Below commands assume this configuration.
+   - [MongoDB Database Tools](https://www.mongodb.com/try/download/database-tools) for importing and exporting data.
+   - [MongoDB Compass](https://www.mongodb.com/try/download/compass) for viewing the data.
 
-2. Populate the database:
+1. There are two ways to regenerate the sample database.
+
+   1. Using mongorestore to load data from dump files.
+
+      ```bash
+      mongorestore dump/
+      ```
+
+   2. Using mongoimport to load data from each of the JSON files. Change the file name to load different collections (Customer, Employee, Lead, Opportunity, Screening Record).
+
+      ```bash
+      mongoimport -d crm --jsonArray --file db/sample_data/[filename].json --jsonArray
+      ```
+
+1. Populate the database:
 
    ```bash
    sqlite3 database.db < data.sql
    ```
 
-3. To run queries on the database, use the following command. Change the number in the query file name to run different queries:
+1. To run queries on the database, use the following command. Change the number in the query file name to run different queries:
 
    ```bash
    sqlite3 database.db < query1.sql
    ```
 
-4. To confirm that the tables were created and conform to the constraints, refer to the [ddl_outputs.pdf](docs/ddl_outputs.pdf) file.
+1. To confirm that the tables were created and conform to the constraints, refer to the [ddl_outputs.pdf](docs/ddl_outputs.pdf) file.
 
-5. To view example outputs of the queries, refer to the [dml_outputs.pdf](docs/dml_outputs.pdf) file.
+1. To view example outputs of the queries, refer to the [dml_outputs.pdf](docs/dml_outputs.pdf) file.
 
 ## Web Application
 
