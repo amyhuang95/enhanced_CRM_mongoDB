@@ -39,7 +39,7 @@ This project uses MongoDB as the database. To use the database, install the requ
    2. Using mongoimport to load data from each of the JSON files to a databases called `crm`. Change the file name to load different collections (Customer, Employee, Lead, Opportunity, Screening Record).
 
       ```bash
-      mongoimport -d crm --jsonArray --file db/sample_data/[filename].json --jsonArray
+      mongoimport -d crm --jsonArray --file db/sample_data/[filename].json
       ```
 
 3. To run the sample queries using node.js, use the following command. Change the query number to run different queries.
