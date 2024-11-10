@@ -1,1 +1,1 @@
-{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"}],"uuid":"4967a86790684c1f8a125745088fd2b7","collectionName":"Opportunity","type":"collection"}
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"opportunity_id":{"$numberInt":"1"}},"name":"opportunity_id","unique":true}],"uuid":"7ad2d5df18554fa5a62cabfa06faecbf","collectionName":"Opportunity","type":"collection"}

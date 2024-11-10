@@ -1,99 +1,5 @@
 [
   {
-    "customer_id": 1,
-    "legal_entity_name": "Acme Corporation",
-    "industry": "Technology",
-    "type": "Direct Customer",
-    "status": "Active",
-    "date_created": "2023-11-08",
-    "address": [
-      {
-        "type": "Headquarters",
-        "line_1": "123 Main St",
-        "line_2": "Suite 400",
-        "city": "Anytown",
-        "state": "CA",
-        "country": "USA"
-      },
-      {
-        "type": "Factory",
-        "line_1": "456 Elm St",
-        "line_2": "",
-        "city": "Othertown",
-        "state": "NY",
-        "country": "USA"
-      }
-    ],
-    "parent": {
-      "parent_id": 2,
-      "name": "Acme Group Inc",
-      "country": "USA",
-      "type": "Ecosystem Partner"
-    },
-    "owner": {
-      "owner_id": 67890,
-      "first_name": "Jason",
-      "last_name": "Ding",
-      "business_unit": "Cloud",
-      "title": "Sales Manager"
-    },
-    "contact": {
-      "contact_id": 1,
-      "first_name": "Jane",
-      "last_name": "Smith",
-      "phone": "(123) 456-7890",
-      "email": "jane.smith@example.com",
-      "title": "Technical Project Manager"
-    }
-  },
-  {
-    "customer_id": 2,
-    "legal_entity_name": "Beta Industries",
-    "industry": "Manufacturing",
-    "type": "OEM",
-    "status": "Active",
-    "date_created": "2023-11-08",
-    "address": [
-      {
-        "type": "Headquarters",
-        "line_1": "789 Oak St",
-        "line_2": "Suite 200",
-        "city": "Sometown",
-        "state": "TX",
-        "country": "USA"
-      },
-      {
-        "type": "Warehouse",
-        "line_1": "101 Pine St",
-        "line_2": "",
-        "city": "Anothertown",
-        "state": "FL",
-        "country": "USA"
-      }
-    ],
-    "parent": {
-      "parent_id": 3,
-      "name": "Beta Group Inc",
-      "country": "USA",
-      "type": "Distributor"
-    },
-    "owner": {
-      "owner_id": 2,
-      "first_name": "Emily",
-      "last_name": "Chen",
-      "business_unit": "Cloud",
-      "title": "Sales Executive"
-    },
-    "contact": {
-      "contact_id": 5,
-      "first_name": "John",
-      "last_name": "Doe",
-      "phone": "(234) 567-8901",
-      "email": "john.doe@example.com",
-      "title": "Account Manager"
-    }
-  },
-  {
     "customer_id": 3,
     "legal_entity_name": "Gamma Solutions",
     "industry": "Healthcare",
@@ -110,7 +16,6 @@
         "country": "USA"
       }
     ],
-
     "owner": {
       "owner_id": 3,
       "first_name": "Michael",
@@ -125,45 +30,6 @@
       "phone": "(345) 678-9012",
       "email": "alice.johnson@example.com",
       "title": "Customer Success Manager"
-    }
-  },
-  {
-    "customer_id": 4,
-    "legal_entity_name": "Delta Enterprises",
-    "industry": "Finance",
-    "type": "Distributor",
-    "status": "Inactive",
-    "date_created": "2023-11-08",
-    "address": [
-      {
-        "type": "Headquarters",
-        "line_1": "303 Cedar St",
-        "line_2": "Suite 500",
-        "city": "Oldtown",
-        "state": "WA",
-        "country": "USA"
-      }
-    ],
-    "parent": {
-      "parent_id": 98768,
-      "name": "Delta Group",
-      "country": "USA",
-      "type": "OEM"
-    },
-    "owner": {
-      "owner_id": 3,
-      "first_name": "Sarah",
-      "last_name": "Wang",
-      "business_unit": "Cloud",
-      "title": "Sales Associate"
-    },
-    "contact": {
-      "contact_id": 54324,
-      "first_name": "Bob",
-      "last_name": "Brown",
-      "phone": "(456) 789-0123",
-      "email": "bob.brown@example.com",
-      "title": "Technical Support Specialist"
     }
   },
   {
@@ -245,81 +111,50 @@
     }
   },
   {
-    "customer_id": 12351,
-    "legal_entity_name": "Eta Systems",
-    "industry": "Energy",
-    "type": "Ecosystem Partner",
+    "customer_id": 1,
+    "legal_entity_name": "Acme Corporation",
+    "industry": "Technology",
+    "type": "Direct Customer",
     "status": "Active",
     "date_created": "2023-11-08",
     "address": [
       {
-        "type": "Office",
-        "line_1": "606 Chestnut St",
-        "line_2": "Suite 100",
-        "city": "Middletown",
-        "state": "CO",
-        "country": "USA"
-      }
-    ],
-    "parent": {
-      "parent_id": 98771,
-      "name": "Eta Holdings",
-      "country": "USA",
-      "type": "Direct Customer"
-    },
-    "owner": {
-      "owner_id": 67896,
-      "first_name": "Daniel",
-      "last_name": "Garcia",
-      "business_unit": "Cloud",
-      "title": "Sales Engineer"
-    },
-    "contact": {
-      "contact_id": 54327,
-      "first_name": "Frank",
-      "last_name": "Harris",
-      "phone": "(789) 012-3456",
-      "email": "frank.harris@example.com",
-      "title": "Operations Manager"
-    }
-  },
-  {
-    "customer_id": 12352,
-    "legal_entity_name": "Theta Enterprises",
-    "industry": "Logistics",
-    "type": "Distributor",
-    "status": "Inactive",
-    "date_created": "2023-11-08",
-    "address": [
-      {
         "type": "Headquarters",
-        "line_1": "707 Pine St",
-        "line_2": "Suite 300",
-        "city": "Largetown",
-        "state": "AZ",
+        "line_1": "123 Main St",
+        "line_2": "Suite 400",
+        "city": "Anytown",
+        "state": "CA",
+        "country": "USA"
+      },
+      {
+        "type": "Factory",
+        "line_1": "456 Elm St",
+        "line_2": "",
+        "city": "Othertown",
+        "state": "NY",
         "country": "USA"
       }
     ],
     "parent": {
-      "parent_id": 98772,
-      "name": "Theta Group",
+      "parent_id": 2,
+      "name": "Acme Group Inc",
       "country": "USA",
-      "type": "OEM"
+      "type": "Ecosystem Partner"
     },
     "owner": {
-      "owner_id": 67897,
-      "first_name": "Laura",
-      "last_name": "Martinez",
+      "owner_id": 67890,
+      "first_name": "Jason",
+      "last_name": "Ding",
       "business_unit": "Cloud",
-      "title": "Sales Specialist"
+      "title": "Sales Manager"
     },
     "contact": {
-      "contact_id": 54328,
-      "first_name": "Grace",
-      "last_name": "Lee",
-      "phone": "(890) 123-4567",
-      "email": "grace.lee@example.com",
-      "title": "Customer Service Manager"
+      "contact_id": 1,
+      "first_name": "Jane",
+      "last_name": "Smith",
+      "phone": "(123) 456-7890",
+      "email": "jane.smith@example.com",
+      "title": "Technical Project Manager"
     }
   },
   {
@@ -398,6 +233,170 @@
       "phone": "(012) 345-6789",
       "email": "olivia.taylor@example.com",
       "title": "Business Development Manager"
+    }
+  },
+  {
+    "customer_id": 12352,
+    "legal_entity_name": "Theta Enterprises",
+    "industry": "Logistics",
+    "type": "Distributor",
+    "status": "Inactive",
+    "date_created": "2023-11-08",
+    "address": [
+      {
+        "type": "Headquarters",
+        "line_1": "707 Pine St",
+        "line_2": "Suite 300",
+        "city": "Largetown",
+        "state": "AZ",
+        "country": "USA"
+      }
+    ],
+    "parent": {
+      "parent_id": 98772,
+      "name": "Theta Group",
+      "country": "USA",
+      "type": "OEM"
+    },
+    "owner": {
+      "owner_id": 67897,
+      "first_name": "Laura",
+      "last_name": "Martinez",
+      "business_unit": "Cloud",
+      "title": "Sales Specialist"
+    },
+    "contact": {
+      "contact_id": 54328,
+      "first_name": "Grace",
+      "last_name": "Lee",
+      "phone": "(890) 123-4567",
+      "email": "grace.lee@example.com",
+      "title": "Customer Service Manager"
+    }
+  },
+  {
+    "customer_id": 4,
+    "legal_entity_name": "Delta Enterprises",
+    "industry": "Finance",
+    "type": "Distributor",
+    "status": "Inactive",
+    "date_created": "2023-11-08",
+    "address": [
+      {
+        "type": "Headquarters",
+        "line_1": "303 Cedar St",
+        "line_2": "Suite 500",
+        "city": "Oldtown",
+        "state": "WA",
+        "country": "USA"
+      }
+    ],
+    "parent": {
+      "parent_id": 98768,
+      "name": "Delta Group",
+      "country": "USA",
+      "type": "OEM"
+    },
+    "owner": {
+      "owner_id": 3,
+      "first_name": "Sarah",
+      "last_name": "Wang",
+      "business_unit": "Cloud",
+      "title": "Sales Associate"
+    },
+    "contact": {
+      "contact_id": 54324,
+      "first_name": "Bob",
+      "last_name": "Brown",
+      "phone": "(456) 789-0123",
+      "email": "bob.brown@example.com",
+      "title": "Technical Support Specialist"
+    }
+  },
+  {
+    "customer_id": 12351,
+    "legal_entity_name": "Eta Systems",
+    "industry": "Energy",
+    "type": "Ecosystem Partner",
+    "status": "Active",
+    "date_created": "2023-11-08",
+    "address": [
+      {
+        "type": "Office",
+        "line_1": "606 Chestnut St",
+        "line_2": "Suite 100",
+        "city": "Middletown",
+        "state": "CO",
+        "country": "USA"
+      }
+    ],
+    "parent": {
+      "parent_id": 98771,
+      "name": "Eta Holdings",
+      "country": "USA",
+      "type": "Direct Customer"
+    },
+    "owner": {
+      "owner_id": 67896,
+      "first_name": "Daniel",
+      "last_name": "Garcia",
+      "business_unit": "Cloud",
+      "title": "Sales Engineer"
+    },
+    "contact": {
+      "contact_id": 54327,
+      "first_name": "Frank",
+      "last_name": "Harris",
+      "phone": "(789) 012-3456",
+      "email": "frank.harris@example.com",
+      "title": "Operations Manager"
+    }
+  },
+  {
+    "customer_id": 2,
+    "legal_entity_name": "Beta Industries",
+    "industry": "Manufacturing",
+    "type": "OEM",
+    "status": "Active",
+    "date_created": "2023-11-08",
+    "address": [
+      {
+        "type": "Headquarters",
+        "line_1": "789 Oak St",
+        "line_2": "Suite 200",
+        "city": "Sometown",
+        "state": "TX",
+        "country": "USA"
+      },
+      {
+        "type": "Warehouse",
+        "line_1": "101 Pine St",
+        "line_2": "",
+        "city": "Anothertown",
+        "state": "FL",
+        "country": "USA"
+      }
+    ],
+    "parent": {
+      "parent_id": 3,
+      "name": "Beta Group Inc",
+      "country": "USA",
+      "type": "Distributor"
+    },
+    "owner": {
+      "owner_id": 2,
+      "first_name": "Emily",
+      "last_name": "Chen",
+      "business_unit": "Cloud",
+      "title": "Sales Executive"
+    },
+    "contact": {
+      "contact_id": 5,
+      "first_name": "John",
+      "last_name": "Doe",
+      "phone": "(234) 567-8901",
+      "email": "john.doe@example.com",
+      "title": "Account Manager"
     }
   }
 ]

@@ -1,17 +1,5 @@
 [
   {
-    "employee_id": 0,
-    "first_name": "Placeholder",
-    "last_name": "Employee",
-    "phone": "000-0000",
-    "email": "placeholder@company.com",
-    "title": "NA",
-    "department": "Sales",
-    "business_unit": "Functional",
-    "hired_date": "1999-01-01",
-    "status": "Inactive"
-  },
-  {
     "employee_id": 1,
     "first_name": "Alice",
     "last_name": "Smith",
@@ -48,23 +36,11 @@
     "status": "Active"
   },
   {
-    "employee_id": 4,
-    "first_name": "Diana",
-    "last_name": "Lee",
-    "phone": "555-4567",
-    "email": "diana.lee@company.com",
-    "title": "Sales Executive",
-    "department": "Sales",
-    "business_unit": "Cloud",
-    "hired_date": "2023-04-01",
-    "status": "Active"
-  },
-  {
-    "employee_id": 5,
-    "first_name": "Eve",
-    "last_name": "Martinez",
-    "phone": "555-5678",
-    "email": "eve.martinez@company.com",
+    "employee_id": 8,
+    "first_name": "Sam",
+    "last_name": "Chen",
+    "phone": "555-5672",
+    "email": "sam.chen@company.com",
     "title": "Software Engineer",
     "department": "Engineering",
     "business_unit": "AI",
@@ -96,11 +72,35 @@
     "status": "Inactive"
   },
   {
-    "employee_id": 8,
-    "first_name": "Sam",
-    "last_name": "Chen",
-    "phone": "555-5672",
-    "email": "sam.chen@company.com",
+    "employee_id": 4,
+    "first_name": "Diana",
+    "last_name": "Lee",
+    "phone": "555-4567",
+    "email": "diana.lee@company.com",
+    "title": "Sales Executive",
+    "department": "Sales",
+    "business_unit": "Cloud",
+    "hired_date": "2023-04-01",
+    "status": "Active"
+  },
+  {
+    "employee_id": 0,
+    "first_name": "Placeholder",
+    "last_name": "Employee",
+    "phone": "000-0000",
+    "email": "placeholder@company.com",
+    "title": "NA",
+    "department": "Sales",
+    "business_unit": "Functional",
+    "hired_date": "1999-01-01",
+    "status": "Inactive"
+  },
+  {
+    "employee_id": 5,
+    "first_name": "Eve",
+    "last_name": "Martinez",
+    "phone": "555-5678",
+    "email": "eve.martinez@company.com",
     "title": "Software Engineer",
     "department": "Engineering",
     "business_unit": "AI",

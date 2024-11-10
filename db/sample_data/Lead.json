@@ -2,7 +2,7 @@
   {
     "lead_id": 1,
     "name": "PC manufacturer",
-    "status": "Qualified",
+    "status": "Pending Review",
     "probability": 0.8,
     "source": "EE conference",
     "analysis": "largest PC manufacturer in Asia",
