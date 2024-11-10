@@ -20,7 +20,7 @@ Refers to example JSON objects of each collection in the [db/json_examples.js](d
 
 ## Database Setup
 
-This project uses MongoDB as the database. To use the database, install the required tools, clone this repository and run the following commands in the terminal:
+This project uses MongoDB as the database. To use the database, install the required tools, clone this repository, navigate to this project's directory, and run the following commands in the terminal:
 
 1. Tools required:
 
