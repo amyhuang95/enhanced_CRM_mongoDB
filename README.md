@@ -42,6 +42,12 @@ This project uses MongoDB as the database. To use the database, install the requ
       mongoimport -d crm --jsonArray --file db/sample_data/[filename].json --jsonArray
       ```
 
+3. To run the sample queries using node.js, use the following command. Change the query number to run different queries.
+
+   ```bash
+   node db/sample_queries/query1.js
+   ```
+
 <!-- ## Web Application
 
 The web application implements the Employee and Customer tables. It is built using Node.js and Express.js. To run the web application, clone this repository, navigate to the webapp directory, and run the following commands in the terminal:
