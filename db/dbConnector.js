@@ -1,10 +1,18 @@
-import sqlite3 from 'sqlite3';
-import { open } from 'sqlite';
+import { MongoClient } from 'mongodb';
 
-// Helper function to connect to the database
-export async function getDBConnection() {
-  return open({
-    filename: './queries/database.db',
-    driver: sqlite3.Database,
-  });
+const uri = 'mongodb://localhost:27017';
+const client = new MongoClient(uri);
+const dbName = 'crm';
+
+async function getDBConnection() {
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+    return { client, db };
+  } catch (error) {
+    console.error('Failed to connect to the CRM database:', error);
+    throw error;
+  }
 }
+
+export { getDBConnection };
