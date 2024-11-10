@@ -24,35 +24,25 @@ This project uses MongoDB as the database. To use the database, install the requ
 
 1. Tools required:
 
-   - [MongoDB](https://www.mongodb.com/try/download/community) for the database server. By default, MongoDB runs on localhost:27017. Below commands assume this configuration.
+   - [MongoDB](https://www.mongodb.com/try/download/community) for the database server. By default, MongoDB runs on `localhost:27017`. Below commands assume this configuration.
    - [MongoDB Database Tools](https://www.mongodb.com/try/download/database-tools) for importing and exporting data.
    - [MongoDB Compass](https://www.mongodb.com/try/download/compass) for viewing the data.
 
-1. There are two ways to regenerate the sample database.
+2. There are two ways to regenerate the sample database.
 
    1. Using mongorestore to load data from dump files.
 
       ```bash
-      mongorestore dump/
+      mongorestore db/dump/
       ```
 
-   2. Using mongoimport to load data from each of the JSON files. Change the file name to load different collections (Customer, Employee, Lead, Opportunity, Screening Record).
+   2. Using mongoimport to load data from each of the JSON files to a databases called `crm`. Change the file name to load different collections (Customer, Employee, Lead, Opportunity, Screening Record).
 
       ```bash
       mongoimport -d crm --jsonArray --file db/sample_data/[filename].json --jsonArray
       ```
 
-1. To run queries on the database, use the following command. Change the number in the query file name to run different queries:
-
-   ```bash
-   sqlite3 database.db < query1.sql
-   ```
-
-1. To confirm that the tables were created and conform to the constraints, refer to the [ddl_outputs.pdf](docs/ddl_outputs.pdf) file.
-
-1. To view example outputs of the queries, refer to the [dml_outputs.pdf](docs/dml_outputs.pdf) file.
-
-## Web Application
+<!-- ## Web Application
 
 The web application implements the Employee and Customer tables. It is built using Node.js and Express.js. To run the web application, clone this repository, navigate to the webapp directory, and run the following commands in the terminal:
 
@@ -68,7 +58,7 @@ The web application implements the Employee and Customer tables. It is built usi
    npm start
    ```
 
-3. Go to http://localhost:3000 in your browser to view the web application.
+3. Go to http://localhost:3000 in your browser to view the web application. -->
 
 ---
 
