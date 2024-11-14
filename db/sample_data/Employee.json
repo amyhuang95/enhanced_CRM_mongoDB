@@ -8,7 +8,7 @@
     "title": "Sales Manager",
     "department": "Sales",
     "business_unit": "Cloud",
-    "hired_date": "2021-05-10",
+    "hired_date": { "$date": "2021-05-10T00:00:00Z" },
     "status": "Active"
   },
   {
@@ -20,7 +20,7 @@
     "title": "Sales Director",
     "department": "Sales",
     "business_unit": "AI",
-    "hired_date": "2022-01-20",
+    "hired_date": { "$date": "2021-05-10T00:00:00Z" },
     "status": "Active"
   },
   {
@@ -32,7 +32,7 @@
     "title": "Sanction Analyst",
     "department": "Compliance",
     "business_unit": "Automobile",
-    "hired_date": "2020-09-15",
+    "hired_date": { "$date": "2021-05-10T00:00:00Z" },
     "status": "Active"
   },
   {
@@ -44,7 +44,7 @@
     "title": "Software Engineer",
     "department": "Engineering",
     "business_unit": "AI",
-    "hired_date": "2023-02-12",
+    "hired_date": { "$date": "2021-05-10T00:00:00Z" },
     "status": "Active"
   },
   {
@@ -56,7 +56,7 @@
     "title": "Legal Compliance Analyst",
     "department": "Compliance",
     "business_unit": "Functional",
-    "hired_date": "2023-02-12",
+    "hired_date": { "$date": "2021-05-10T00:00:00Z" },
     "status": "Active"
   },
   {
@@ -68,7 +68,7 @@
     "title": "Software Engineer",
     "department": "Engineering",
     "business_unit": "Cloud",
-    "hired_date": "2023-02-12",
+    "hired_date": { "$date": "2021-05-10T00:00:00Z" },
     "status": "Inactive"
   },
   {
@@ -80,7 +80,7 @@
     "title": "Sales Executive",
     "department": "Sales",
     "business_unit": "Cloud",
-    "hired_date": "2023-04-01",
+    "hired_date": { "$date": "2021-05-10T00:00:00Z" },
     "status": "Active"
   },
   {
@@ -92,7 +92,7 @@
     "title": "NA",
     "department": "Sales",
     "business_unit": "Functional",
-    "hired_date": "1999-01-01",
+    "hired_date": { "$date": "2021-05-10T00:00:00Z" },
     "status": "Inactive"
   },
   {
@@ -104,7 +104,7 @@
     "title": "Software Engineer",
     "department": "Engineering",
     "business_unit": "AI",
-    "hired_date": "2023-02-12",
+    "hired_date": { "$date": "2021-05-10T00:00:00Z" },
     "status": "Active"
   }
 ]

@@ -5,7 +5,7 @@
     "industry": "Healthcare",
     "type": "Ecosystem Partner",
     "status": "Pending Review",
-    "date_created": "2023-11-08",
+    "date_created": { "$date": "2023-11-08T00:00:00Z" },
     "address": [
       {
         "type": "Office",
@@ -38,7 +38,7 @@
     "industry": "Retail",
     "type": "Direct Customer",
     "status": "Active",
-    "date_created": "2023-11-08",
+    "date_created": { "$date": "2023-11-08T00:00:00Z" },
     "address": [
       {
         "type": "Warehouse",
@@ -77,7 +77,7 @@
     "industry": "Technology",
     "type": "OEM",
     "status": "Pending Review",
-    "date_created": "2023-11-08",
+    "date_created": { "$date": "2023-11-08T00:00:00Z" },
     "address": [
       {
         "type": "Factory",
@@ -116,7 +116,7 @@
     "industry": "Technology",
     "type": "Direct Customer",
     "status": "Active",
-    "date_created": "2023-11-08",
+    "date_created": { "$date": "2023-11-08T00:00:00Z" },
     "address": [
       {
         "type": "Headquarters",
@@ -163,7 +163,7 @@
     "industry": "Telecommunications",
     "type": "Direct Customer",
     "status": "Active",
-    "date_created": "2023-11-08",
+    "date_created": { "$date": "2023-11-08T00:00:00Z" },
     "address": [
       {
         "type": "Factory",
@@ -202,7 +202,7 @@
     "industry": "Automotive",
     "type": "OEM",
     "status": "Pending Review",
-    "date_created": "2023-11-08",
+    "date_created": { "$date": "2023-11-08T00:00:00Z" },
     "address": [
       {
         "type": "Warehouse",
@@ -241,7 +241,7 @@
     "industry": "Logistics",
     "type": "Distributor",
     "status": "Inactive",
-    "date_created": "2023-11-08",
+    "date_created": { "$date": "2023-11-08T00:00:00Z" },
     "address": [
       {
         "type": "Headquarters",
@@ -280,7 +280,7 @@
     "industry": "Finance",
     "type": "Distributor",
     "status": "Inactive",
-    "date_created": "2023-11-08",
+    "date_created": { "$date": "2023-11-08T00:00:00Z" },
     "address": [
       {
         "type": "Headquarters",
@@ -319,7 +319,7 @@
     "industry": "Energy",
     "type": "Ecosystem Partner",
     "status": "Active",
-    "date_created": "2023-11-08",
+    "date_created": { "$date": "2023-11-08T00:00:00Z" },
     "address": [
       {
         "type": "Office",
@@ -358,7 +358,7 @@
     "industry": "Manufacturing",
     "type": "OEM",
     "status": "Active",
-    "date_created": "2023-11-08",
+    "date_created": { "$date": "2023-11-08T00:00:00Z" },
     "address": [
       {
         "type": "Headquarters",

@@ -6,7 +6,7 @@
     "probability": 0.8,
     "source": "EE conference",
     "analysis": "largest PC manufacturer in Asia",
-    "date_created": "2019-01-01",
+    "date_created": { "$date": "2021-05-10T00:00:00Z" },
     "contact": {
       "contact_id": 1,
       "first_name": "Joe",
@@ -30,7 +30,7 @@
     "probability": 0.5,
     "source": "Webinar",
     "analysis": "Leading software provider in Europe",
-    "date_created": "2019-02-15",
+    "date_created": { "$date": "2021-05-10T00:00:00Z" },
     "contact": {
       "contact_id": 2,
       "first_name": "Alice",
@@ -54,7 +54,7 @@
     "probability": 0.2,
     "source": "Referral",
     "analysis": "Startup focusing on AI technologies",
-    "date_created": "2019-03-10",
+    "date_created": { "$date": "2021-05-10T00:00:00Z" },
     "contact": {
       "contact_id": 3,
       "first_name": "Charlie",
