@@ -180,20 +180,22 @@ router.post('/customers/:customer_id/edit', async (req, res, next) => {
 
   try {
     // Find relevant parent data, then add to customer object
-    const parent = await db.getCustomerById(parseInt(req.body['parent_id']));
+    const parent = await db.getCustomerById(parseInt(body['parent_id']));
+    console.log('Extracted parent info', parent);
     if (parent) {
       customer['parent'] = {
-        parent_id: parent.parent_id,
-        name: parent.name,
+        parent_id: parent.customer_id,
+        name: parent.legal_entity_name,
         country: parent.address[0].country,
         type: parent.type,
       };
     }
 
     // Find relevant owner data, then add to customer object
-    const owner = await db.getEmployeeById(parseInt(req.body['owner_id']));
+    const owner = await db.getEmployeeById(parseInt(body['owner_id']));
+    console.log('Extract Owner info', owner);
     customer['owner'] = {
-      owner_id: owner.owner_id,
+      owner_id: owner.employee_id,
       first_name: owner.first_name,
       last_name: owner.last_name,
       business_unit: owner.business_unit,
