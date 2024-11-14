@@ -17,11 +17,16 @@ export async function addCustomer(customer) {
       .sort({ customer_id: -1 })
       .limit(1)
       .toArray();
+
+    // Get ids of previous customer and contact
     const prevCustId =
       prevCustomer.length > 0 ? prevCustomer[0].customer_id : 0;
-    const prevContId = prevCustomer.length > 0 ? prevCustomer[0].contact_id : 0;
-    customer['customer_id'] = prevCustId + 1;
-    customer['contact']['contact_id'] = prevContId + 1;
+    const prevContId =
+      prevCustomer.length > 0 ? prevCustomer[0].contact.contact_id : 0;
+
+    // increment the ids
+    customer.customer_id = prevCustId + 1;
+    customer.contact.contact_id = prevContId + 1;
 
     const result = await collection.insertOne(customer);
     return result;
