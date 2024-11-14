@@ -7,7 +7,7 @@
         <h5 class="card-title"><%= emp.first_name %> <%= emp.last_name %></h5>
         <div class="card-text">
           <div><%= emp.title %></div>
-          <div>Hired on: <%= emp.hired_date %></div>
+          <div>Hired on: <%= emp.date_hired %></div>
           <div>
             <a class="btn btn-outline-primary" href="<%= '/employees/' + emp.employee_id + '/edit' %>">Edit</a>
             <a class="btn btn-outline-danger" href="<%= '/employees/' + emp.employee_id + '/delete' %>">Delete</a>
