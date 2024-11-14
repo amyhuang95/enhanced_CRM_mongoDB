@@ -95,7 +95,7 @@ router.post('/addCustomer', async (req, res, next) => {
 
   try {
     // Find relevant parent data
-    const parent = await db.getCustomerById(parseInt(req.body['parent_id']));
+    const parent = await db.getCustomerById(parseInt(body['parent_id']));
 
     // Add parent sub-document if parent is supplied
     if (parent) {
@@ -108,11 +108,11 @@ router.post('/addCustomer', async (req, res, next) => {
     }
 
     // Find relevant owner data
-    const owner = await db.getEmployeeById(parseInt(req.body['owner_id']));
+    const owner = await db.getEmployeeById(parseInt(body['owner_id']));
 
     // Add owner subdocument
     customer['owner'] = {
-      owner_id: parseInt(req.body['owner_id']),
+      owner_id: parseInt(body['owner_id']),
       first_name: owner.first_name,
       last_name: owner.last_name,
       business_unit: owner.business_unit,
