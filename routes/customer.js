@@ -134,64 +134,72 @@ router.post('/addCustomer', async (req, res, next) => {
  */
 router.post('/customers/:customer_id/edit', async (req, res, next) => {
   const customer_id = parseInt(req.params.customer_id);
-  const parent = await db.getCustomerById(parseInt(req.body['parent_id']));
-  const owner = await db.getEmployeeById(parseInt(req.body['owner_id']));
+  const body = req.body;
+
   const customer = {
-    legal_entity_name: req.body['legal_entity_name'],
-    industry: req.body['industry'],
-    type: req.body['type'],
-    status: req.body['status'],
-    date_created: new Date(req.body['date_created']),
+    customer_id: customer_id,
+    legal_entity_name: body['legal_entity_name'],
+    industry: body['industry'],
+    type: body['type'],
+    status: body['status'],
+    date_created: new Date(body['date_created']),
     address: [
       {
-        type: req.body['addresses[0][type]'],
-        line_1: req.body['addresses[0][line_1]'],
-        line_2: req.body['addresses[0][line_2]'],
-        city: req.body['addresses[0][city]'],
-        state: req.body['addresses[0][state]'],
-        country: req.body['addresses[0][country]'],
+        type: body['addresses[0][type]'],
+        line_1: body['addresses[0][line_1]'],
+        line_2: body['addresses[0][line_2]'],
+        city: body['addresses[0][city]'],
+        state: body['addresses[0][state]'],
+        country: body['addresses[0][country]'],
       },
       {
-        type: req.body['addresses[1][type]'],
-        line_1: req.body['addresses[1][line_1]'],
-        line_2: req.body['addresses[1][line_2]'],
-        city: req.body['addresses[1][city]'],
-        state: req.body['addresses[1][state]'],
-        country: req.body['addresses[1][country]'],
+        type: body['addresses[1][type]'],
+        line_1: body['addresses[1][line_1]'],
+        line_2: body['addresses[1][line_2]'],
+        city: body['addresses[1][city]'],
+        state: body['addresses[1][state]'],
+        country: body['addresses[1][country]'],
       },
     ].filter(
       (address) =>
-        address.type &&
-        address.line_1 &&
-        address.city &&
-        address.state &&
-        address.country
-    ), // Filter out empty addresses
-    parent: {
-      parent_id: parseInt(req.body['parent_id']),
-      name: parent.name,
-      country: parent.address[0].country,
-      type: parent.type,
+        address.type !== '' ||
+        address.line_1 !== '' ||
+        address.city !== '' ||
+        address.state !== '' ||
+        address.country !== ''
+    ), // Add second address if supplied
+    contact: {
+      contact_id: parseInt(body['contact[contact_id]']),
+      first_name: body['contact[first_name]'],
+      last_name: body['contact[last_name]'],
+      phone: body['contact[phone]'],
+      email: body['contact[email]'],
+      title: body['contact[title]'],
     },
-    owner: {
-      owner_id: parseInt(req.body['owner_id']),
+  };
+
+  try {
+    // Find relevant parent data, then add to customer object
+    const parent = await db.getCustomerById(parseInt(req.body['parent_id']));
+    if (parent) {
+      customer['parent'] = {
+        parent_id: parent.parent_id,
+        name: parent.name,
+        country: parent.address[0].country,
+        type: parent.type,
+      };
+    }
+
+    // Find relevant owner data, then add to customer object
+    const owner = await db.getEmployeeById(parseInt(req.body['owner_id']));
+    customer['owner'] = {
+      owner_id: owner.owner_id,
       first_name: owner.first_name,
       last_name: owner.last_name,
       business_unit: owner.business_unit,
       title: owner.title,
-    },
-    contact: {
-      contact_id: parseInt(req.body['contact[contact_id]']),
-      first_name: req.body['contact[first_name]'],
-      last_name: req.body['contact[last_name]'],
-      phone: req.body['contact[phone]'],
-      email: req.body['contact[email]'],
-      title: req.body['contact[title]'],
-    },
-  };
-  console.log('update customer', customer);
+    };
 
-  try {
     const updateResult = await db.updateCustomerById(customer_id, customer);
     console.log('update', updateResult);
 
