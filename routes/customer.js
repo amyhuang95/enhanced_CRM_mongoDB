@@ -85,7 +85,6 @@ router.post('/addCustomer', async (req, res, next) => {
       },
     ],
     contact: {
-      contact_id: parseInt(body['contact[contact_id]']),
       first_name: body['contact[first_name]'],
       last_name: body['contact[last_name]'],
       phone: body['contact[phone]'],
