@@ -6,28 +6,16 @@ import { getDBConnection } from '../dbConnector.js';
  * @returns {Promise<Array>} a list of customers
  */
 export async function getCustomerByOwnerId(owner_id) {
-  console.log('[DB] getCustomerByOwnerId', owner_id);
-  const db = await getDBConnection();
-
-  const sql = `
-        SELECT *
-        FROM customer
-        WHERE owner_id = @owner_id;
-        `;
-
-  const params = {
-    '@owner_id': owner_id,
-  };
+  const { client, db } = await getDBConnection();
+  const collection = db.collection('Customer');
 
   try {
-    const stmt = await db.prepare(sql);
-    const result = await stmt.all(params);
-    await stmt.finalize();
+    const result = await collection.find({ owner_id: owner_id }).toArray();
     return result;
   } catch (error) {
     console.error('Error fetching customer by employee id:', error);
     throw error;
   } finally {
-    await db.close();
+    await client.close();
   }
 }

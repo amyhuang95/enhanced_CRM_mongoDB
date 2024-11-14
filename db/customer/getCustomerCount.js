@@ -7,28 +7,20 @@ import { getDBConnection } from '../dbConnector.js';
  */
 export async function getCustomerCount(query) {
   console.log('[DB] getCustomerCount', query);
-  const db = await getDBConnection();
-
-  const sql = `
-    SELECT COUNT(*) AS count
-    FROM customer
-    WHERE legal_entity_name LIKE @query;`;
-
-  const params = {
-    '@query': query + '%',
-  };
+  const { client, db } = await getDBConnection();
+  const collection = db.collection('Customer');
 
   try {
-    const stmt = await db.prepare(sql);
-    const result = await stmt.get(params);
-    await stmt.finalize();
-    return result.count;
+    const regexQuery = new RegExp(`^${query}`, 'i'); // case-insensitive search
+    const customers = await collection.countDocuments({
+      legal_entity_name: regexQuery,
+    });
+
+    return customers;
   } catch (error) {
     console.error('Error fetching customer count:', error);
     throw error;
   } finally {
-    await db.close();
+    await client.close();
   }
 }
-
-export default getCustomerCount;

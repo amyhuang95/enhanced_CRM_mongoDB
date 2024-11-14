@@ -7,28 +7,16 @@ import { getDBConnection } from '../dbConnector.js';
  */
 export async function deleteEmployeeById(employee_id) {
   console.log('[DB] deleteEmployeeById', employee_id);
-
-  const db = await getDBConnection();
-
-  const sql = `
-      DELETE FROM employee
-      WHERE employee_id = @employee_id;`;
-
-  const params = {
-    '@employee_id': employee_id,
-  };
+  const { client, db } = await getDBConnection();
+  const collection = db.collection('Employee');
 
   try {
-    const stmt = await db.prepare(sql);
-    const result = await stmt.run(params);
-    await stmt.finalize();
+    const result = collection.deleteOne({ employee_id });
     return result;
   } catch (error) {
     console.error('Error deleting employee by id:', error);
     throw error;
   } finally {
-    db.close();
+    client.close();
   }
 }
-
-export default deleteEmployeeById;

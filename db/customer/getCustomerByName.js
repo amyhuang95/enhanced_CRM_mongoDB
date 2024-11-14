@@ -9,34 +9,23 @@ import { getDBConnection } from '../dbConnector.js';
  */
 export async function getCustomerByName(query, page, pageSize) {
   console.log('[DB] getCustomerByName', query);
-  const db = await getDBConnection();
-
-  const sql = `
-    SELECT *
-    FROM customer
-    WHERE legal_entity_name LIKE @query
-    ORDER BY date_created DESC
-    LIMIT @pageSize
-    OFFSET @offset;
-  `;
-
-  const params = {
-    '@query': query + '%',
-    '@pageSize': pageSize,
-    '@offset': (page - 1) * pageSize,
-  };
+  const { client, db } = await getDBConnection();
+  const collection = db.collection('Customer');
 
   try {
-    const stmt = await db.prepare(sql); // prevent SQL injection attacks
-    const result = await stmt.all(params); // execute the statement and fetch all rows
-    await stmt.finalize(); // release the statement
-    return result;
+    const regexQuery = new RegExp(`^${query}`, 'i'); // case-insensitive search
+    const customers = await collection
+      .find({ legal_entity_name: regexQuery })
+      .sort({ date_created: -1 })
+      .skip((page - 1) * pageSize)
+      .limit(pageSize)
+      .toArray();
+
+    return customers;
   } catch (error) {
     console.error('Error fetching customers by name:', error);
     throw error;
   } finally {
-    await db.close();
+    await client.close();
   }
 }
-
-export default getCustomerByName;

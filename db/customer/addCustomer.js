@@ -7,33 +7,27 @@ import { getDBConnection } from '../dbConnector.js';
  */
 export async function addCustomer(customer) {
   console.log('[DB] addCustomer', customer);
-  const db = await getDBConnection();
-
-  const sql = `
-    INSERT INTO customer (owner_id, parent_entity_id, legal_entity_name, country, address, industry, type)
-    VALUES (@owner_id, @parent_entity_id, @legal_entity_name, @country, @address, @industry, @type);`;
-
-  const params = {
-    '@owner_id': customer.owner_id,
-    '@parent_entity_id': customer.parent_entity_id,
-    '@legal_entity_name': customer.legal_entity_name,
-    '@country': customer.country,
-    '@address': customer.address,
-    '@industry': customer.industry,
-    '@type': customer.type,
-  };
+  const { client, db } = await getDBConnection();
+  const collection = db.collection('Customer');
 
   try {
-    const stmt = await db.prepare(sql);
-    const result = await stmt.run(params);
-    await stmt.finalize();
+    // Auto increment customer and contact id from last added customer
+    const prevCustomer = await collection
+      .find({}, { customer_id: 1, contact_id: 1 })
+      .sort({ customer_id: -1 })
+      .limit(1)
+      .toArray();
+    const prevCustId =
+      prevCustomer.length > 0 ? prevCustomer[0].customer_id : 0;
+    const prevContId = prevCustomer.length > 0 ? prevCustomer[0].contact_id : 0;
+    customer['customer_id'] = prevCustId + 1;
+    customer['contact']['contact_id'] = prevContId + 1;
+
+    const result = await collection.insertOne(customer);
     return result;
-  } catch (error) {
-    console.error('Error adding customer:', error);
-    throw error;
+  } catch (err) {
+    console.log('Error adding customer: ', err);
   } finally {
-    db.close();
+    await client.close();
   }
 }
-
-export default addCustomer;

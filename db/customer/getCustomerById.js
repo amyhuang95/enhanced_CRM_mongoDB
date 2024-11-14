@@ -10,7 +10,7 @@ export async function getCustomerById(customer_id) {
   const { client, db } = await getDBConnection();
   const collection = db.collection('Customer');
   try {
-    const result = await collection.find({ customer_id }).toArray();
+    const result = await collection.findOne({ customer_id });
     return result;
   } catch (error) {
     console.error('Error fetching customer by id:', error);

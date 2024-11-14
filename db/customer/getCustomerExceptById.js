@@ -1,36 +1,27 @@
 import { getDBConnection } from '../dbConnector.js';
 
 /**
- * Function to get all customers except the one with the given customer_id.
- * Use this to select parent entity for a customer.
- * @param {number} customer_id  the customer_id of the customer to exclude
+ * Function to get customers except by id from the database
+ * @param {number} customer_id the customer id to exclude
  * @returns {Promise<Array>} array of customers id and legal_entity_name
  */
 export async function getCustomerExceptById(customer_id) {
   console.log('[DB] getCustomerExceptById', customer_id);
-  const db = await getDBConnection();
-
-  const sql = `
-    SELECT customer_id AS company_id, legal_entity_name
-    FROM customer
-    WHERE customer_id != @customer_id;
-  `;
-
-  const params = {
-    '@customer_id': customer_id,
-  };
+  const { client, db } = await getDBConnection();
+  const collection = db.collection('Customer');
 
   try {
-    const stmt = await db.prepare(sql); // prevent SQL injection attacks
-    const result = await stmt.all(params); // execute the statement and fetch all rows
-    await stmt.finalize(); // release the statement
-    return result;
+    const customers = await collection
+      .find(
+        { customer_id: { $ne: customer_id } },
+        { projection: { customer_id: 1, legal_entity_name: 1 } }
+      )
+      .toArray();
+    return customers;
   } catch (error) {
-    console.error('Error fetching customers by name:', error);
+    console.error('Error fetching customers except by id:', error);
     throw error;
   } finally {
-    await db.close();
+    await client.close();
   }
 }
-
-export default getCustomerExceptById;
