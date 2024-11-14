@@ -74,6 +74,7 @@ router.post('/addCustomer', async (req, res, next) => {
     status: 'Pending Review', // default to Pending Review
     date_created: new Date().toISOString().split('T')[0], // default to today
     address: [
+      // only one address section in the page to add new customer
       {
         type: body['addresses[0][type]'],
         line_1: body['addresses[0][line_1]'],
@@ -82,22 +83,7 @@ router.post('/addCustomer', async (req, res, next) => {
         state: body['addresses[0][state]'],
         country: body['addresses[0][country]'],
       },
-      {
-        type: body['addresses[1][type]'],
-        line_1: body['addresses[1][line_1]'],
-        line_2: body['addresses[1][line_2]'],
-        city: body['addresses[1][city]'],
-        state: body['addresses[1][state]'],
-        country: body['addresses[1][country]'],
-      },
-    ].filter(
-      (address) =>
-        address.type &&
-        address.line_1 &&
-        address.city &&
-        address.state &&
-        address.country
-    ), // Filter out empty addresses
+    ],
     contact: {
       contact_id: parseInt(body['contact[contact_id]']),
       first_name: body['contact[first_name]'],
