@@ -48,17 +48,8 @@
   
   
     <div class="address-item">
-      <h5>Address</h5>
-      <label class="form-label">
-        Type:
-        <select class="form-control" name="addresses[0][type]" required>
-          <option value="" disabled selected>Select</option>
-          <option value="Headquarters">Headquarters</option>
-          <option value="Factory">Factory</option>
-          <option value="Warehouse">Warehouse</option>
-          <option value="Office">Office</option>
-        </select>
-      </label>
+      <h5>Address (Headquarters)</h5>
+      <input class="form-control" type="hidden" name="addresses[0][type]" value="Headquarters"/>
       <label class="form-label">
         Line 1:
         <input class="form-control" type="text" name="addresses[0][line_1]" required/>

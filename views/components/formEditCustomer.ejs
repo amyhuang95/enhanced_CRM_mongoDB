@@ -85,11 +85,11 @@
       <label class="form-label">
         Account Manager:
         <select class="form-control" name="owner_id">
-            <% if (customer.owner_id === 0) { %>
+            <% if (customer.owner.owner_id === 0) { %>
             <option value="0" selected disabled>Placeholder Employee</option>
             <% } %>
           <% accountManagers.forEach(function(mgr) { %>
-          <option value="<%= mgr.employee_id %>" <%= customer.owner_id === mgr.employee_id ? 'selected' : '' %>><%= mgr.first_name %> <%= mgr.last_name %></option>
+          <option value="<%= mgr.employee_id %>" <%= customer.owner.owner_id === mgr.employee_id ? 'selected' : '' %>><%= mgr.first_name %> <%= mgr.last_name %></option>
           <% }); %>
         </select>
       </label>
@@ -102,7 +102,7 @@
           class="form-control"
           type="date"
           name="date_created"
-          value="<%= customer.date_created %>"
+          value="<%= customer.date_created.toISOString().split('T')[0] %>"
         />
       </label>
     </div>
@@ -188,11 +188,8 @@
     <div>
       <label class="form-label">
         Contact Information:
+        <input class="form-control" type="hidden" name="contact[contact_id]" value="<%= customer.contact.contact_id %>"/>
         <div class="contact-item">
-          <label class="form-label">
-            Contact ID:
-            <input class="form-control" type="text" name="contact[contact_id]" value="<%= customer.contact.contact_id %>" required disabled/>
-          </label>
           <label class="form-label">
             First Name:
             <input class="form-control" type="text" name="contact[first_name]" value="<%= customer.contact.first_name %>" required/>
