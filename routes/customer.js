@@ -72,7 +72,7 @@ router.post('/addCustomer', async (req, res, next) => {
     industry: body['industry'],
     type: body['type'],
     status: 'Pending Review', // default to Pending Review
-    date_created: new Date().toISOString().split('T')[0], // default to today
+    date_created: new Date(), // default to today
     address: [
       // only one address section in the page to add new customer
       {
@@ -162,7 +162,7 @@ router.post('/customers/:customer_id/edit', async (req, res, next) => {
       },
     ].filter(
       (address) =>
-        address.type !== '' ||
+        address.type ||
         address.line_1 !== '' ||
         address.city !== '' ||
         address.state !== '' ||
@@ -181,7 +181,6 @@ router.post('/customers/:customer_id/edit', async (req, res, next) => {
   try {
     // Find relevant parent data, then add to customer object
     const parent = await db.getCustomerById(parseInt(body['parent_id']));
-    console.log('Extracted parent info', parent);
     if (parent) {
       customer['parent'] = {
         parent_id: parent.customer_id,
@@ -193,7 +192,6 @@ router.post('/customers/:customer_id/edit', async (req, res, next) => {
 
     // Find relevant owner data, then add to customer object
     const owner = await db.getEmployeeById(parseInt(body['owner_id']));
-    console.log('Extract Owner info', owner);
     customer['owner'] = {
       owner_id: owner.employee_id,
       first_name: owner.first_name,
@@ -205,7 +203,7 @@ router.post('/customers/:customer_id/edit', async (req, res, next) => {
     const updateResult = await db.updateCustomerById(customer_id, customer);
     console.log('update', updateResult);
 
-    if (updateResult && updateResult.changes === 1) {
+    if (updateResult['acknowledged']) {
       res.redirect('/customers/?msg=Updated');
     } else {
       res.redirect('/customers/?msg=Error Updating');
