@@ -137,7 +137,6 @@ router.post('/customers/:customer_id/edit', async (req, res, next) => {
   const body = req.body;
 
   const customer = {
-    customer_id: customer_id,
     legal_entity_name: body['legal_entity_name'],
     industry: body['industry'],
     type: body['type'],
