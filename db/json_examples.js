@@ -5,7 +5,7 @@ export const customer = {
   industry: 'Technology',
   type: 'Direct Customer', // Direct Customer, Ecosystem Partner, ODM, OEM, Distributor
   status: 'Active', // Active, Inactive, Pending Review
-  date_created: '2023-11-08',
+  date_created: new Date('2023-11-08'),
   address: [
     // At least one address is required
     {
@@ -60,7 +60,7 @@ export const employee = {
   title: 'Software Engineer',
   department: 'Engineering', // Engineering, Sales, Compliance, HR, Finance
   business_unit: 'Cloud', // Cloud, Automobile, AI, Functional
-  date_hired: '2023-11-08',
+  date_hired: new Date('2023-11-08'),
   is_active: true,
 };
 
@@ -72,7 +72,7 @@ export const lead = {
   probability: 0.8,
   source: 'EE conference',
   analysis: 'largest PC manufacturer in Asia',
-  date_created: '2019-01-01',
+  date_created: new Date('2019-01-01'),
   contact: {
     contact_id: 1,
     first_name: 'Joe',
@@ -96,11 +96,11 @@ export const opportunity = {
   opportunity_id: 12345,
   customer_id: 67890,
   name: 'Ace Project',
-  start_date: '2023-11-08',
+  start_date: new Date('2023-11-08'),
   close_date: null,
   stage: 'Propose', // Create, Develop, Propose, Close-Won, Close-Lost
   est_revenue: 100000,
-  date_created: '2023-01-08',
+  date_created: new Date('2023-01-08'),
   owner: {
     // Reference to an employee in Sales department
     owner_id: 54321,
@@ -116,7 +116,7 @@ export const opportunity = {
       name: 'Acme Quote 1',
       content: 'Detailed proposal for project scope and pricing.',
       status: 'Pending', // Draft, Pending Review, Approved, Rejected, Canceled
-      date_created: '2023-11-08',
+      date_created: new Date('2023-11-08'),
       date_approved: null,
       bill_to: null, // Reference to a customer, Required if status is Approved
       ship_to: null, // Reference to a customer, Required if status is Approved
@@ -126,8 +126,8 @@ export const opportunity = {
       name: 'Acme Quote 2',
       content: 'Revised proposal with updated pricing and timeline.',
       status: 'Approved',
-      date_created: '2023-11-10',
-      date_approved: '2023-11-11',
+      date_created: new Date('2023-11-10'),
+      date_approved: new Date('2023-11-11'),
       bill_to: {
         // Reference to a customer
         bill_to_id: 76543,
@@ -172,7 +172,7 @@ export const screeningRecord = {
   version: {
     version_id: 0,
     version: 0,
-    timestamp: '2023-11-08T12:34:56Z',
+    timestamp: new Date('2023-11-08T12:34:56Z'),
     modified_by_id: 54321, // Reference to an employee
     modified_by_name: 'Jane Smith', // Reference to an employee
   },
