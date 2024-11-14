@@ -11,7 +11,7 @@ export async function getEmployeeById(employee_id) {
   const collection = db.collection('Employee');
 
   try {
-    const emp = await collection.find({ employee_id }).toArray();
+    const emp = await collection.findOne({ employee_id });
     return emp;
   } catch (error) {
     console.error('Error fetching employee by id:', error);
