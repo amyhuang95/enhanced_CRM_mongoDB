@@ -18,7 +18,7 @@
 
       <div class="row">
         <div class="col-8">
-          <%- include("../../components/searchBar.ejs", { query }) %>
+          <%- include("../../components/searchBar.ejs", { query, page: "customers" }) %>
           <%- include("../../components/customersList.ejs", { customers, currentPage, lastPage }) %>
         </div>
         <div class="col-4">
