@@ -16,7 +16,7 @@ export async function getEmployeeByName(query, page, pageSize) {
     const regexQuery = new RegExp(`^${query}`, 'i'); // case-insensitive search
     const employees = await collection
       .find({ $or: [{ first_name: regexQuery }, { last_name: regexQuery }] })
-      .sort({ date_hired: -1 })
+      .sort({ _id: -1 })
       .skip((page - 1) * pageSize)
       .limit(pageSize)
       .toArray();
