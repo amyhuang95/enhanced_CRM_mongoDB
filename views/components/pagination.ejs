@@ -2,8 +2,8 @@
 <% if (lastPage > 1) { %>
   <nav aria-label="Pagination">
     <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" href="<%= '/' + pageName + '/?page=' + (currentPage - 1) %>">Previous</a>
+      <li class="page-item <%= currentPage === 1 ? 'disabled' : '' %>">
+        <a class="page-link" href="<%= currentPage === 1 ? '#' : '/' + pageName + '/?page=' + (currentPage - 1) %>">Previous</a>
       </li>
       <li class="page-item">
         <a class="page-link" href="<%= '/' + pageName + '/?page=' + 1 %>"><%= 1 %></a>
@@ -31,8 +31,8 @@
           ><%= lastPage %></a
         >
       </li>
-      <li class="page-item">
-        <a class="page-link" href="<%= '/' + pageName + '/?page=' + (currentPage + 1) %>">Next</a>
+      <li class="page-item <%= currentPage === lastPage ? 'disabled' : '' %>">
+        <a class="page-link" href="<%= currentPage === lastPage ? '#' : '/' + pageName + '/?page=' + (currentPage + 1) %>">Next</a>
       </li>
     </ul>
   </nav>

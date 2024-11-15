@@ -16,7 +16,7 @@ export async function getCustomerByName(query, page, pageSize) {
     const regexQuery = new RegExp(`^${query}`, 'i'); // case-insensitive search
     const customers = await collection
       .find({ legal_entity_name: regexQuery })
-      .sort({ date_created: -1 })
+      .sort({ _id: -1 })
       .skip((page - 1) * pageSize)
       .limit(pageSize)
       .toArray();
