@@ -31,7 +31,7 @@ router.get('/employees', async (req, res, next) => {
  * GET single employee based on employee id
  */
 router.get('/employees/:employee_id/edit', async (req, res, next) => {
-  const employee_id = req.params.employee_id;
+  const employee_id = parseInt(req.params.employee_id);
   const msg = req.query.msg || null;
   try {
     let emp = await db.getEmployeeById(employee_id);
@@ -57,7 +57,19 @@ router.get('/employees/:employee_id/edit', async (req, res, next) => {
  * POST request to add an employee
  */
 router.post('/addEmployee', async (req, res, next) => {
-  const emp = req.body;
+  const body = req.body;
+
+  const emp = {
+    first_name: body['first_name'],
+    last_name: body['last_name'],
+    phone: body['phone'],
+    email: body['email'],
+    title: body['title'],
+    department: body['department'],
+    business_unit: body['business_unit'],
+    date_hired: new Date(), // default to today
+    status: 'Active', // default status at creation
+  };
 
   try {
     const addEmp = await db.addEmployee(emp);
@@ -74,15 +86,25 @@ router.post('/addEmployee', async (req, res, next) => {
  * POST to update an employee by id
  */
 router.post('/employees/:employee_id/edit', async (req, res, next) => {
-  const employee_id = req.params.employee_id;
-  const emp = req.body;
-  console.log(emp);
+  const employee_id = parseInt(req.params.employee_id);
+  const body = req.body;
+  const emp = {
+    first_name: body['first_name'],
+    last_name: body['last_name'],
+    phone: body['phone'],
+    email: body['email'],
+    title: body['title'],
+    department: body['department'],
+    business_unit: body['business_unit'],
+    date_hired: new Date(body['date_hired']),
+    status: body['status'],
+  };
 
   try {
     const updateResult = await db.updateEmployeeById(employee_id, emp);
     console.log('update', updateResult);
 
-    if (updateResult && updateResult.changes === 1) {
+    if (updateResult['acknowledged']) {
       res.redirect(
         `/employees/?msg=Updated ${emp.first_name} ${emp.last_name}`
       );
@@ -98,13 +120,17 @@ router.post('/employees/:employee_id/edit', async (req, res, next) => {
  * GET request to delete an employee by id
  */
 router.get('/employees/:employee_id/delete', async (req, res, next) => {
-  const employee_id = req.params.employee_id;
+  const employee_id = parseInt(req.params.employee_id);
 
   // If the emplyee manages customers, update the owner_id to 0 for all its customers
   const customers = await db.getCustomerByOwnerId(employee_id);
+  const placeholderEmp = await db.getEmployeeById(0);
   if (customers.length !== 0) {
     for (let customer of customers) {
-      await db.updateOwnerById(customer.customer_id, 0);
+      let updateCustomer = {};
+      updateCustomer.owner = placeholderEmp;
+
+      await db.updateCustomerById(customer.customer_id, updateCustomer);
       console.log('Updated owner_id to 0 for customers:', customer.customer_id);
     }
   }
@@ -114,7 +140,7 @@ router.get('/employees/:employee_id/delete', async (req, res, next) => {
     const deleteResult = await db.deleteEmployeeById(employee_id);
     console.log('delete', deleteResult);
 
-    if (deleteResult && deleteResult.changes === 1) {
+    if (deleteResult['acknowledged']) {
       res.redirect(`/employees/?msg=Deleted employee ID ${employee_id}`);
     } else {
       res.redirect('/employees/?msg=Error Deleting');
