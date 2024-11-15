@@ -222,7 +222,7 @@ router.get('/customers/:customer_id/delete', async (req, res, next) => {
     const deleteResult = await db.deleteCustomerById(customer_id);
     console.log('delete', deleteResult);
 
-    if (deleteResult && deleteResult.changes === 1) {
+    if (deleteResult['acknowledged']) {
       res.redirect('/customers/?msg=Deleted');
     } else {
       res.redirect('/customers/?msg=Error Deleting');
