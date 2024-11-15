@@ -10,7 +10,9 @@ export async function getCustomerByOwnerId(owner_id) {
   const collection = db.collection('Customer');
 
   try {
-    const result = await collection.find({ owner_id: owner_id }).toArray();
+    const result = await collection
+      .find({ 'owner.owner_id': owner_id })
+      .toArray();
     return result;
   } catch (error) {
     console.error('Error fetching customer by employee id:', error);
