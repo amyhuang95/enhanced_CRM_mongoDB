@@ -11,6 +11,15 @@ export async function addEmployee(emp) {
   const collection = db.collection('Employee');
 
   try {
+    // Set up auto-increment employee id
+    const prevEmp = await collection
+      .find({}, { employee_id: 1 })
+      .sort({ employee_id: -1 })
+      .limit(1)
+      .toArray();
+    const prevEmpId = prevEmp.length > 0 ? prevEmp[0].employee_id : 0;
+    emp.employee_id = prevEmpId + 1;
+
     const result = await collection.insertOne(emp);
     return result;
   } catch (error) {
