@@ -112,8 +112,8 @@
         <input
           class="form-control"
           type="date"
-          name="hired_date"
-          value="<%= emp.hired_date %>"
+          name="date_hired"
+          value="<%= emp.date_hired.toISOString().split('T')[0] %>"
         />
       </label>
     </div>

@@ -122,21 +122,29 @@ router.post('/employees/:employee_id/edit', async (req, res, next) => {
 router.get('/employees/:employee_id/delete', async (req, res, next) => {
   const employee_id = parseInt(req.params.employee_id);
 
-  // If the emplyee manages customers, update the owner_id to 0 for all its customers
-  const customers = await db.getCustomerByOwnerId(employee_id);
-  const placeholderEmp = await db.getEmployeeById(0);
-  if (customers.length !== 0) {
-    for (let customer of customers) {
-      let updateCustomer = {};
-      updateCustomer.owner = placeholderEmp;
-
-      await db.updateCustomerById(customer.customer_id, updateCustomer);
-      console.log('Updated owner_id to 0 for customers:', customer.customer_id);
-    }
-  }
-
-  // Delete the employee
   try {
+    // If the emplyee manages customers, update the owner_id to 0 for all its customers
+    const customers = await db.getCustomerByOwnerId(employee_id);
+    const placeholderEmp = await db.getEmployeeById(0);
+    if (customers.length !== 0) {
+      for (let customer of customers) {
+        let updateCustomer = {};
+        updateCustomer.owner = {
+          owner_id: placeholderEmp.employee_id,
+          first_name: placeholderEmp.first_name,
+          last_name: placeholderEmp.last_name,
+          business_unit: placeholderEmp.business_unit,
+          title: placeholderEmp.title,
+        };
+
+        await db.updateCustomerById(customer.customer_id, updateCustomer);
+        console.log(
+          'Updated owner_id to 0 for customers:',
+          customer.customer_id
+        );
+      }
+    }
+
     const deleteResult = await db.deleteEmployeeById(employee_id);
     console.log('delete', deleteResult);
 
