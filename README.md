@@ -48,9 +48,9 @@ This project uses MongoDB as the database. To use the database, install the requ
    node db/sample_queries/query1.js
    ```
 
-<!-- ## Web Application
+## Web Application
 
-The web application implements the Employee and Customer tables. It is built using Node.js and Express.js. To run the web application, clone this repository, navigate to the webapp directory, and run the following commands in the terminal:
+The web application implements the Employee and Customer collections. It is built using Node.js and Express.js. To run the web application, clone this repository, navigate to the webapp directory, and run the following commands in the terminal:
 
 1. Install the required packages:
 
@@ -64,7 +64,7 @@ The web application implements the Employee and Customer tables. It is built usi
    npm start
    ```
 
-3. Go to http://localhost:3000 in your browser to view the web application. -->
+3. Go to http://localhost:3000 in your browser to view the web application.
 
 ---
 
